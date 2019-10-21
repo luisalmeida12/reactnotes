@@ -1,0 +1,19 @@
+.search-bar {
+    width: 100%;
+    margin-bottom: 25px;
+    background:#fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.search-box{
+    width: 75%;
+    border: solid 1px red;
+}
+
+.user-info{
+    width: 25%;
+    background: yellow;
+}
