@@ -1,0 +1,13 @@
+.main {
+    padding: 15px;
+    width: 80%;
+    height: 100%;
+    overflow: auto;
+    background: #F9F9F9;
+}
+
+.content {
+    width: 95%;
+    margin: 0 auto;
+    background: yellow;
+}
