@@ -1,19 +1,44 @@
 .search-bar {
-    width: 100%;
-    margin-bottom: 25px;
+    /* width: 100%; */
+    /* margin-bottom: 25px; */
     background:#fff;
-    padding: 15px;
+    /* padding: 15px; */
+    width: 100%;
+    height: 70px;
     display: flex;
     justify-content: space-between;
+    /* border: solid 1px blue; */
+    
 }
 
 
 .search-box{
-    width: 75%;
+    flex: 1;
     border: solid 1px red;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    
 }
 
 .user-info{
     width: 25%;
-    background: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+}
+
+.input-search-box{
+    border: solid 1px red;
+    width: 100%;
+    height: 50%;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
 }

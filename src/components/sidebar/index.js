@@ -9,13 +9,15 @@ export default class Sidebar extends Component {
             <div class="logo">                
                 <h1>Simple Note It</h1>
             </div>
-            <ul>
-                <li>New Note</li>
-                <li>View All Notes</li>
-                <li>Calendar</li>
-                <li>Manage Categories</li>
-                <li>Urgent</li>
-            </ul>
+            <div className="nav">
+                <ul>
+                    <li>New Note</li>
+                    <li>View All Notes</li>
+                    <li>Calendar</li>
+                    <li>Manage Categories</li>
+                    <li>Urgent</li>
+                </ul>
+            </div>
         </div>
         );
     }

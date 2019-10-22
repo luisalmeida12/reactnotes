@@ -9,7 +9,7 @@ class Main extends Component {
 
     render () {
         return(
-            <div>hello</div> 
+            <div className="main">{ this.props.children }</div>
            
         );
     }

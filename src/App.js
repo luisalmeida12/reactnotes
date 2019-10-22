@@ -10,11 +10,11 @@ class App extends Component {
   
   render() {
     return (
-      <div class="wrapper">
+      <div className="wrapper">
         
         <Sidebar />
         <Main>
-          <SearchBar></SearchBar>
+          <SearchBar ></SearchBar>
         </Main>
       
       </div>
