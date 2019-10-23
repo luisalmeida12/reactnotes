@@ -20,13 +20,13 @@
     flex: 1 1 auto;
 }
 
-ul {
+.nav ul {
     list-style-type: none;
     display: flex;
     flex-direction: column;
 }
 
-li {
+.nav ul li {
     background: #8881D8;
     height: 50px;
     padding: 15px;
