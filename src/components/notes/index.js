@@ -13,7 +13,7 @@ export default class Notes extends Component {
 
                         <div className="categories-bar">
                             <ul>
-                                <li>All</li>
+                                <li className="selected">All</li>
                                 <li>Business</li>
                                 <li>Project</li>
                                 <li>Personal</li>
@@ -21,6 +21,16 @@ export default class Notes extends Component {
                         </div>
                         <div className="qa-new-note">
                             <small>+ Add new Note</small>
+                        </div>
+
+                        <div className="notes-content">
+                            <article>here</article>
+                            <article>here</article>
+                            <article>here</article>
+                            <article>here</article>
+                            <article>here</article>
+
+                            
                         </div>
                     </div>
                     
