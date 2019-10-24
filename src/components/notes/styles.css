@@ -45,6 +45,8 @@
     border-radius: 2px;
     font-size: 14px;
     transition: 0.6s;
+    font-weight: bold;
+    color: gray;
 }
 .categories-bar ul li:hover {
    color: #fff;
@@ -52,7 +54,7 @@
 
 }
 
-.selected {
+.categories-bar .selected {
     background: #8881D8;
     color: white;
 }
@@ -73,16 +75,70 @@
 }
 
 .notes-content{
-    width: 100%;
+    max-width: 100%;
     display: flex;
-    justify-content: space-between;
-    flex: initial;
-
+    justify-content: flex-start;
+    /* flex: initial; */
+    /* border: solid 1px red; */
+    flex-wrap: wrap;
 }
 
 article {
-    width: 250px;
+    width: 250px; 
     height: 250px;
-    border: solid 1px;
+    /* border: solid 1px; */
     background: #fff;
+    margin-top: 20px;
+    margin-right: 20px;
+    box-shadow: 0 1px 10px rgba(169, 169, 169, 0.3);
+    border-radius: 5px;
+    position: relative;
 }
+
+article .date {
+    font-size: 12px;
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
+    /* border: solid 1px red; */
+}
+
+article .title{
+    font-size: 16px;
+    font-weight: bold;
+    /* width: 100%; */
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top:10px;
+    /* white-space: pre; */
+    /* border: solid 1px red; */
+}
+
+article p {
+    margin: 10px 15px 10px 15px;
+    /* border: solid 1px red; */
+    font-size: 13px;
+    line-height: 18px;
+    color: #919191;
+    max-height: 55%;
+    /* border: solid 1px blue; */
+    word-wrap: break-word;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    /* overflow-y: hidden; */
+}
+
+article .footer{
+    /* border: solid 1px red; */
+    bottom: 0;
+    height: 20px;
+    position: absolute;
+    font-size: 11px;
+    margin: 10px 15px 0 15px;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    
+}
+
+/* <div style="width: 10em; height: 1.2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> */

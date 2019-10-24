@@ -19,23 +19,49 @@ export default class Notes extends Component {
                                 <li>Personal</li>
                             </ul>
                         </div>
+                    
                         <div className="qa-new-note">
                             <small>+ Add new Note</small>
                         </div>
-
-                        <div className="notes-content">
-                            <article>here</article>
-                            <article>here</article>
-                            <article>here</article>
-                            <article>here</article>
-                            <article>here</article>
-
-                            
+                    </div>
+                    <div className="notes-content">
+                            <article>
+                                <div className="date">
+                                    20 June, 2019
+                                </div>
+                                <div className="title">
+                                    this is my first title.
+                                    this is my first title.
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                    Lorem ipsum dolor it cum to me and let's see what  Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                </p>
+                                <div className="footer">this is my footer</div>
+                            </article>
+                            <article>
+                                <div className="date">
+                                    20 June, 2019
+                                </div>
+                                <div className="title">
+                                    this is my first title.
+                                    this is my first title.
+                                </div>
+                                <p>
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
+                                </p>
+                                <div className="footer">project, personal</div>
+                            </article>
+              
                         </div>
                     </div>
                     
                    
-                </div>
+                
             </div>
         );
     }
