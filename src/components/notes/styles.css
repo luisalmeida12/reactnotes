@@ -125,6 +125,7 @@ article p {
     word-wrap: break-word;
     overflow-x: hidden;
     text-overflow: ellipsis;
+    white-space: pre-line;
     /* overflow-y: hidden; */
 }
 
@@ -139,6 +140,10 @@ article .footer{
     align-items: center;
     font-style: italic;
     
+}
+
+.modal-class {
+    background: red;
 }
 
 /* <div style="width: 10em; height: 1.2em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"> */
