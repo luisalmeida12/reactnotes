@@ -5,8 +5,8 @@ import './styles.css';
 export default class Sidebar extends Component {
     render() {
         return(
-        <div class="sidebar">
-            <div class="logo">                
+        <div className="sidebar">
+            <div className="logo">                
                 <h1>Simple Note It</h1>
             </div>
             <div className="nav">

@@ -12,7 +12,19 @@ export default class Notes extends Component {
 
     state = {
             notes: [],
-            visible: false
+            visible: false,
+            articleHovered: false,
+            editingArticleKey: '',
+            // newNote: {
+            //     title: '',
+            //     categories: '',
+            //     body: '',
+            //     createdAt: Date.now()
+            // }
+            title: '',
+            categories: '',
+            body: '',
+            createdAt: Date.now()
     }
 
     componentDidMount() {
@@ -30,6 +42,53 @@ export default class Notes extends Component {
         })
     }
     
+
+    handleInputChange = (event) => {
+
+        // get the target
+        const target = event.target;
+
+        // get the value
+        const value = target.value;
+
+        // get the element name
+        const name = target.name;
+        
+        // updating state using the name element as a comuted property
+        this.setState({ [name]: value });
+
+    }
+
+    // handling form new note
+    handleSubmitNewNote = () => {
+        
+        // submit post request to the api
+        axios.post('http://localhost:3002/api/notes', {
+            title: this.state.title,
+            body: this.state.body,
+            category: this.state.categories
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+    }
+
+    onMouseEnter = (id) => {
+        
+        const a = id.target;
+        console.log(a);
+
+        this.setState({ articleHovered: true })
+    }
+    
+    onMouseLeave = e => {
+        this.setState({ articleHovered: false }) 
+        // console.log("q");       
+    }
+
     // MODAL WINDOW ACTIONS
     openModal() {
         this.setState({
@@ -44,6 +103,9 @@ export default class Notes extends Component {
     }
 
     render() {
+        const { articleHovered } = this.state;
+        const style = articleHovered ? { display: 'block'} : {};
+        const deleteClass = this.state.deleteIcon ? "delete-available" : "";
         return (
             <div>
                 <div className="container">
@@ -67,6 +129,7 @@ export default class Notes extends Component {
                                     + Add new Note
                                 </span>
                             </small>
+                          
                             {/* <input type="button" value="Open" onClick={() => this.openModal()} /> */}
 
                            
@@ -79,38 +142,31 @@ export default class Notes extends Component {
                     {/* {this.state.notes.map(note => <li>{ note.title }</li>)} */}
 
                     {this.state.notes.map((note) => (
-                        <article>
-                        <div className="date">
-                            {note.createdAt}
-                        </div>
-                        <div className="title">
-                            { note.title }
-                            
-                        </div>
-                        <p>
-                            { note.body }
-                            
-                        </p>
-                        <div className="footer">note.categories</div>
+                        <article key={ note._id } onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} >
+                            <div className="article-header">
+                                <div className="date">
+                                    {note.createdAt}
+                                </div>
+                                <div className="article-delete" key={note._id} style={style}>
+                                    X
+                                </div>
+                            </div>    
+
+                            <div className="title">
+                                { note.title }
+                                
+                            </div>
+                            <p>
+                                { note.body }
+                                
+                            </p>
+                            <div className="footer">{ note.category }</div>
                         </article>
 
                 ))}
 
                           
-                            <article>
-                                <div className="date">
-                                    20 June, 2019
-                                </div>
-                                <div className="title">
-                                    this is my first title.
-                                    this is my first title.
-                                </div>
-                                <p>
-                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
-                                    Lorem ipsum dolor it cum to me and let's see what happen in the future
-                                </p>
-                                <div className="footer">project, personal</div>
-                            </article>
+                        
               
                         </div>
                     </div>
@@ -118,9 +174,22 @@ export default class Notes extends Component {
                     {/* MODAL WINDOW */}
                     <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                                 <div className="modal-class">
-                                    <h1>Title</h1>
-                                    <p>Some Contents</p>
-                                    <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                                <form>
+                                    <label>
+                                       Title:
+                                       <input type="text" name="title" value={this.state.title} onChange={ this.handleInputChange} />
+                                    </label>
+                                    <label>
+                                       Body:
+                                       <input type="text" name="body" value={this.state.body} onChange={ this.handleInputChange} />
+                                    </label>
+                                    <label>
+                                       Categories:
+                                       <input type="text" name="categories" value={this.state.categories} onChange={ this.handleInputChange} />
+                                    </label>
+                                    <input type="submit" onClick={this.handleSubmitNewNote } value="Submit" />
+                                </form>
+                                    <a href="#" onClick={() => this.closeModal()}>Close</a>
                                 </div>
                     </Modal>
                 

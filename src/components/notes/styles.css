@@ -30,6 +30,7 @@
     /* border: solid 1px; */
     height: 50px;
     margin: 0;
+    margin-top: 20px;;
 }
 
 .categories-bar ul {
@@ -68,6 +69,7 @@
     font-size: 16px;
     color:#8881D8;
     text-align: right;
+    margin-top: 20px;;
 }
 .qa-new-note:hover{
     color:#6A61BF;
@@ -95,12 +97,34 @@ article {
     position: relative;
 }
 
+article:hover {
+    box-shadow: 0 1px 15px rgba(79, 79, 79, 0.3);
+}
+
+.article-header {
+    display: flex;
+    justify-content: space-between;
+}
+
 article .date {
     font-size: 12px;
     margin-top: 10px;
     margin-left: 15px;
-    margin-right: 15px;
+    /* margin-right: 15px; */
+    border:solid 1px blue;
     /* border: solid 1px red; */
+}
+
+.article-delete{
+    font-size: 12px;
+    border: solid 1px red;
+    margin-top: 10px;
+    margin-right: 15px;
+    display: none;
+}
+
+.delete-available {
+    display: none;
 }
 
 article .title{
