@@ -85,6 +85,10 @@ export default class Notes extends Component {
         // delete note with the id received with axios
         axios.delete(`http://localhost:3002/api/notes/${noteId}`);
 
+        // remove note from the component or hide note
+        const article = document.getElementById(noteId);
+        article.remove();
+
     }
 
     onMouseEnter = (id) => {
