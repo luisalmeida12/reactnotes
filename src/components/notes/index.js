@@ -76,12 +76,23 @@ export default class Notes extends Component {
           });
     }
 
+    // delete note
+    deleteNote = (e) => {
+        
+        // getting the note id to delete
+        const noteId = e.target.id;
+
+        // delete note with the id received with axios
+        axios.delete(`http://localhost:3002/api/notes/${noteId}`);
+
+    }
+
     onMouseEnter = (id) => {
         
         const a = id.target;
-        console.log(a);
+        const key = a.id;
+        this.setState({ articleHovered: true, editingArticleKey: key })
 
-        this.setState({ articleHovered: true })
     }
     
     onMouseLeave = e => {
@@ -142,12 +153,12 @@ export default class Notes extends Component {
                     {/* {this.state.notes.map(note => <li>{ note.title }</li>)} */}
 
                     {this.state.notes.map((note) => (
-                        <article key={ note._id } onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} >
+                        <article id={ note._id } key={ note._id } onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} >
                             <div className="article-header">
                                 <div className="date">
                                     {note.createdAt}
                                 </div>
-                                <div className="article-delete" key={note._id} style={style}>
+                                <div className="article-delete" key={note._id} id={note._id} onClick={this.deleteNote} style={style}>
                                     X
                                 </div>
                             </div>    
