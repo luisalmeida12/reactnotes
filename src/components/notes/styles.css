@@ -111,16 +111,17 @@ article .date {
     margin-top: 10px;
     margin-left: 15px;
     /* margin-right: 15px; */
-    border:solid 1px blue;
+    /* border:solid 1px blue; */
     /* border: solid 1px red; */
 }
 
 .article-delete{
     font-size: 12px;
-    border: solid 1px red;
+    /* border: solid 1px red; */
     margin-top: 10px;
     margin-right: 15px;
     display: none;
+    cursor: pointer;
 }
 
 .delete-available {
