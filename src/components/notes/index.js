@@ -187,24 +187,34 @@ export default class Notes extends Component {
                     </div>
                     
                     {/* MODAL WINDOW */}
-                    <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
+                    <Modal visible={this.state.visible} width="600" height="400" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                                 <div className="modal-class">
+                                    Create a new Note
+                                    <div className="separator"></div>
                                 <form>
-                                    <label>
-                                       Title:
-                                       <input type="text" name="title" value={this.state.title} onChange={ this.handleInputChange} />
-                                    </label>
-                                    <label>
-                                       Body:
-                                       <input type="text" name="body" value={this.state.body} onChange={ this.handleInputChange} />
-                                    </label>
-                                    <label>
-                                       Categories:
-                                       <input type="text" name="categories" value={this.state.categories} onChange={ this.handleInputChange} />
-                                    </label>
-                                    <input type="submit" onClick={this.handleSubmitNewNote } value="Submit" />
+                                    <div>
+                                       
+                                        <input type="text" name="title" value={this.state.title} placeholder="Note Title" onChange={ this.handleInputChange} />
+                                        
+                                    </div>
+                                    <div>
+                                       
+                                        <textarea type="text" name="body" value={this.state.body} placeHolder="insert the description here" onChange={ this.handleInputChange} />
+                                        
+                                    </div>
+                                    <div>
+                                        
+                                        <input type="text" name="categories" value={this.state.categories} placeholder="insert the categories here separated by a comma" onChange={ this.handleInputChange} />
+                                       
+                                    </div>
+                                    <div className="footer-form-new-note">
+                                        <div><input type="submit" id="submit" onClick={this.handleSubmitNewNote } value="Create a New Note" /></div>
+                                        <div><input type="submit" id="cancel" onClick={() => this.closeModal()} value="Cancel" /></div>
+                                        {/* <a href="#" onClick={() => this.closeModal()}>Close</a> */}
+                                    </div>
+
                                 </form>
-                                    <a href="#" onClick={() => this.closeModal()}>Close</a>
+                                   
                                 </div>
                     </Modal>
                 
