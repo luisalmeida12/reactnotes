@@ -157,9 +157,13 @@ export default class Notes extends Component {
                     {/* {this.state.notes.map(note => <li>{ note.title }</li>)} */}
 
                     {this.state.notes.map((note) => (
+                   
+
                         <article id={ note._id } key={ note._id } onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave} >
+
                             <div className="article-header">
                                 <div className="date">
+                                   
                                     {note.createdAt}
                                 </div>
                                 <div className="article-delete" key={note._id} id={note._id} onClick={this.deleteNote} style={style}>
