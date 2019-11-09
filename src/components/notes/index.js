@@ -26,14 +26,15 @@ export default class Notes extends Component {
             title: '',
             categories: '',
             body: '',
-            createdAt: Date.now()
+            createdAt: Date.now(),
+            filteredCategories: ['cat1', 'cat2']
     }
 
     componentDidMount() {
 
         this.loadNotes();
        
-
+        
     }
 
     loadNotes() {
@@ -43,8 +44,24 @@ export default class Notes extends Component {
             this.setState({ notes });
         })
     }
-    
+  
+    // format the date from the database
+    formatDate(string){
+        var options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(string).toLocaleDateString([],options);
+    }
 
+    // display categories filter
+    categoriesFilter(cats) {
+        
+        // console.log(this.state.filteredCategories);
+
+        // console.log(arrayOfCats);
+
+        return cats;
+    }
+
+     
     handleInputChange = (event) => {
 
         // get the target
@@ -129,9 +146,13 @@ export default class Notes extends Component {
                     <div className="main-header-notes">
 
                         <div className="categories-bar">
-                            
-                            
-                            <ul>
+                        <ul>
+                        {this.state.notes.map((note) => (
+                            <li>{this.categoriesFilter(note.category)}</li>
+                        ))}
+
+                           
+                                {this.categoriesFilter()}
                                 <li className="selected">All</li>
                                 <li>Business</li>
                                 <li>Project</li>
@@ -146,12 +167,7 @@ export default class Notes extends Component {
                                     + Add new Note
                                 </span>
                             </small>
-                          
-                            {/* <input type="button" value="Open" onClick={() => this.openModal()} /> */}
-
-                           
-
-
+            
                         </div>
                     </div>
                     <div className="notes-content">
@@ -165,7 +181,9 @@ export default class Notes extends Component {
 
                             <div className="article-header">
                                 <div className="date">
-                                    {note.createdAt}
+                                    Created at <strong>{this.formatDate(note.createdAt)}</strong>
+
+                                    {/* Created at <strong>{note.createdAt}</strong> */}
                                 </div>
                                 <div className="article-delete" key={note._id} id={note._id} onClick={this.deleteNote} style={style}>
                                     X
@@ -204,7 +222,7 @@ export default class Notes extends Component {
                                     </div>
                                     <div>
                                        
-                                        <textarea type="text" name="body" value={this.state.body} placeHolder="insert the description here" onChange={ this.handleInputChange} />
+                                        <textarea type="text" name="body" value={this.state.body} placeholder="insert the description here" onChange={ this.handleInputChange} />
                                         
                                     </div>
                                     <div>
