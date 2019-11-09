@@ -6,6 +6,8 @@ import axios from 'axios';
 
 
 
+
+
 import './styles.css';
 
 export default class Notes extends Component {
@@ -120,7 +122,7 @@ export default class Notes extends Component {
     render() {
         const { articleHovered } = this.state;
         const style = articleHovered ? { display: 'block'} : {};
-        const deleteClass = this.state.deleteIcon ? "delete-available" : "";
+        // const deleteClass = this.state.deleteIcon ? "delete-available" : "";
         return (
             <div>
                 <div className="container">
@@ -163,7 +165,6 @@ export default class Notes extends Component {
 
                             <div className="article-header">
                                 <div className="date">
-                                   
                                     {note.createdAt}
                                 </div>
                                 <div className="article-delete" key={note._id} id={note._id} onClick={this.deleteNote} style={style}>
