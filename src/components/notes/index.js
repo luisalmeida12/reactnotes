@@ -54,7 +54,28 @@ export default class Notes extends Component {
     // display categories filter
     categoriesFilter(cats) {
         
-        // console.log(this.state.filteredCategories);
+        
+            
+            const arrayOfCats = cats.split(",");
+
+            this.setState(prevState => ({
+                filteredCategories: [...prevState.filteredCategories, arrayOfCats[1]]
+              }))
+
+            
+            // console.log(arrayOfCats);
+
+            // for (let i = 0; i <= arrayOfCats.length; i++ ){
+            //     if (this.state.filteredCategories.indexOf(arrayOfCats[i]) < 0 ) {
+            //         console.log("nao existe no array");
+            //     }
+            //     else {
+            //         console.log("ja existe no array");
+            //     }
+            // }          
+        
+        
+        console.log(this.state.filteredCategories);
 
         // console.log(arrayOfCats);
 
@@ -152,7 +173,7 @@ export default class Notes extends Component {
                         ))}
 
                            
-                                {this.categoriesFilter()}
+                               
                                 <li className="selected">All</li>
                                 <li>Business</li>
                                 <li>Project</li>
