@@ -54,13 +54,9 @@ export default class Notes extends Component {
     // display categories filter
     categoriesFilter(cats) {
         
-            // console.log("argument cats: " + cats);
             const finalCats = [];
             const arrayOfCats = cats.split(", ");
             let catIncluded = false;
-
-            // console.log("ARRAY OF CATS " + arrayOfCats);
-            // console.log("final categ BEGIN: " + finalCats);
 
             arrayOfCats.map(cat => {
                 
@@ -77,7 +73,31 @@ export default class Notes extends Component {
         return finalCats;
     }
 
-     
+
+    // display notes of a specific category
+    handleNotesFiltered(cat) {
+          
+
+        console.log("categoria clicada: " + cat);
+        console.log(this.state.notes);
+
+        this.state.notes.map((note) => {
+            console.log("the cat is: " + note.category);
+            
+        })
+
+
+        const reduced = this.state.notes.reduce(function(filtered, note) {
+            if (note.category == cat) {
+               const someNewValue = { title: note.title, body: note.body, category: note.category, createdAt: note.createdAt}
+               filtered.push(someNewValue);
+            }
+            console.log(filtered);
+            return filtered;
+          }, []);
+        
+    }
+
     handleInputChange = (event) => {
 
         // get the target
@@ -163,10 +183,10 @@ export default class Notes extends Component {
 
                         <div className="categories-bar">
                         <ul>
-                        <li className="selected">All</li>
-                        {this.state.notes.map((note) => (
-                            <li>{this.categoriesFilter(note.category)}</li>
-                        ))}
+                            <li className="selected">All</li>
+                            {this.state.notes.map((note) => (
+                                <li onClick={() => this.handleNotesFiltered(note.category)}>{this.categoriesFilter(note.category)}</li>
+                            ))}
                             </ul>
                         </div>
                     
