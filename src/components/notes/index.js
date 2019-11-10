@@ -27,7 +27,7 @@ export default class Notes extends Component {
             categories: '',
             body: '',
             createdAt: Date.now(),
-            filteredCategories: ['cat1', 'cat2']
+            filteredCategories: []
     }
 
     componentDidMount() {
@@ -54,32 +54,27 @@ export default class Notes extends Component {
     // display categories filter
     categoriesFilter(cats) {
         
-        
-            
-            const arrayOfCats = cats.split(",");
+            // console.log("argument cats: " + cats);
+            const finalCats = [];
+            const arrayOfCats = cats.split(", ");
+            let catIncluded = false;
 
-            this.setState(prevState => ({
-                filteredCategories: [...prevState.filteredCategories, arrayOfCats[1]]
-              }))
+            // console.log("ARRAY OF CATS " + arrayOfCats);
+            // console.log("final categ BEGIN: " + finalCats);
 
-            
-            // console.log(arrayOfCats);
+            arrayOfCats.map(cat => {
+                
+                
+                catIncluded = this.state.filteredCategories.includes(cat);
+                console.log(catIncluded);
 
-            // for (let i = 0; i <= arrayOfCats.length; i++ ){
-            //     if (this.state.filteredCategories.indexOf(arrayOfCats[i]) < 0 ) {
-            //         console.log("nao existe no array");
-            //     }
-            //     else {
-            //         console.log("ja existe no array");
-            //     }
-            // }          
-        
-        
-        console.log(this.state.filteredCategories);
+                if (!catIncluded) {
+                    finalCats.push(cat);
+                }
 
-        // console.log(arrayOfCats);
-
-        return cats;
+            });
+    
+        return finalCats;
     }
 
      
@@ -168,16 +163,10 @@ export default class Notes extends Component {
 
                         <div className="categories-bar">
                         <ul>
+                        <li className="selected">All</li>
                         {this.state.notes.map((note) => (
                             <li>{this.categoriesFilter(note.category)}</li>
                         ))}
-
-                           
-                               
-                                <li className="selected">All</li>
-                                <li>Business</li>
-                                <li>Project</li>
-                                <li>Personal</li>
                             </ul>
                         </div>
                     
